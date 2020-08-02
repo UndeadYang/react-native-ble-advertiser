@@ -202,7 +202,9 @@ public class BLEAdvertiserModule extends ReactContextBaseJavaModule {
         WritableArray promiseArray=Arguments.createArray();
 
         Set<String> keys = mAdvertiserList.keySet();
-        for (String key : keys) {
+        String[] keysArray = new String[keys.size()];
+        keysArray = keys.toArray(keysArray);
+        for (String key : keysArray) {
             BluetoothLeAdvertiser tempAdvertiser = mAdvertiserList.remove(key);
             AdvertiseCallback tempCallback = mAdvertiserCallbackList.remove(key);
             if (tempAdvertiser != null) {
